@@ -21,6 +21,6 @@ public class Department {
     @JoinColumn(name = "director_id")
     private Doctor director;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ward> wards;
 }
