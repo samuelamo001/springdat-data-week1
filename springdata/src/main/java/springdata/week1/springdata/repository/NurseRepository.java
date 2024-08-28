@@ -18,6 +18,7 @@ public interface NurseRepository extends JpaRepository<Nurse, Long> {
     Double findAverageSalaryByDepartment(@Param("departmentId") Long departmentId);
 
     List<Nurse> findByDepartmentId(Long departmentId);
+    
 
 
 

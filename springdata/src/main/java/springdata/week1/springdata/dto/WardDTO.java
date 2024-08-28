@@ -24,5 +24,4 @@ public class WardDTO {
     private Integer numberOfBeds;
     private NurseDTO supervisor;
     private DepartmentDTO department;
-    private Set<PatientDTO> patients;
 }

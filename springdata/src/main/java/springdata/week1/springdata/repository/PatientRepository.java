@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 
-    @Query("SELECT p FROM Patient p WHERE p.ward.id = :wardId AND p.bedNumber = :bedNumber")
+    @Query(value = "SELECT *  FROM patients as p WHERE p.ward_id = 1 AND p.bed_number = 1", nativeQuery = true)
     Patient findPatientByWardAndBedNumber(@Param("wardId") Long wardId, @Param("bedNumber") Integer bedNumber);
 
     List<Patient> findByTreatingDoctorId(Long doctorId);

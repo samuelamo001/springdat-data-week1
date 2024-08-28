@@ -1,13 +1,10 @@
 package springdata.week1.springdata.entities;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,7 +15,6 @@ public class Ward {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     private String number;
     private Integer numberOfBeds;
