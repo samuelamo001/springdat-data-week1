@@ -22,6 +22,6 @@ public class WardDTO {
     private Long id;
     private String number;
     private Integer numberOfBeds;
-    private NurseDTO supervisor;
-    private DepartmentDTO department;
+    private Long supervisorId;
+    private Long departmentId;
 }

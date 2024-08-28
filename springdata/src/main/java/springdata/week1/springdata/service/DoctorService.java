@@ -1,7 +1,12 @@
 package springdata.week1.springdata.service;
 
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.Propagation;
 import springdata.week1.springdata.dto.DoctorDTO;
 import springdata.week1.springdata.entities.Doctor;
 
@@ -21,6 +26,7 @@ public class DoctorService {
     }
 
 
+
     public Doctor createDoctor(DoctorDTO doctorDTO) {
      Doctor doctor = Doctor.builder()
              .firstName(doctorDTO.getFirstName())
@@ -38,20 +44,31 @@ public class DoctorService {
         return doctorRepository.findDoctorByPatient(patientId);
  }
 
- public List<Doctor> findBySpeciality(String speciality) {
-        return doctorRepository.findDoctorsBySpeciality(speciality);
- }
-
-
 
    public List<Doctor> getAllDoctors() {
         return doctorRepository.findAll();
    }
 
-   public void deleteDoctor(DoctorDTO doctorDTO) {
-        Doctor doctor = doctorRepository.findById(doctorDTO.getId()).orElseThrow();
-        doctorRepository.delete(doctor);
+   public void deleteDoctor(Long doctorId) {
+        doctorRepository.deleteById(doctorId);
    }
 
+   public Doctor updateDoctor(Long doctorId, DoctorDTO doctorDTO) {
 
+        Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(()-> new EntityNotFoundException("Doctor not found"));
+        doctor.setFirstName(doctorDTO.getFirstName());
+        doctor.setSurname(doctorDTO.getSurname());
+        doctor.setAddress(doctorDTO.getAddress());
+        doctor.setTelephoneNumber(doctorDTO.getTelephoneNumber());
+        doctor.setSpeciality(doctorDTO.getSpeciality());
+        return doctorRepository.save(doctor);
+   }
+
+   public List<Doctor> findDoctorBySpeciality(String speciality) {
+        return doctorRepository.findDoctorsBySpeciality(speciality);
+   }
+
+   public List<Doctor> findAllDoctorsWithDepartment() {
+        return doctorRepository.findAllDoctorsWithDepartments();
+   }
 }

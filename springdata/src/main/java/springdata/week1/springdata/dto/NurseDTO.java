@@ -17,8 +17,12 @@ import springdata.week1.springdata.entities.Ward;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NurseDTO {
+    private Long id;
+    private String surname;
+    private String firstName;
+    private String address;
+    private String telephoneNumber;
     private String rotation;
     private Double salary;
-    private DepartmentDTO department;
-    private WardDTO supervisedWard;
+    private Long departmentId;
 }

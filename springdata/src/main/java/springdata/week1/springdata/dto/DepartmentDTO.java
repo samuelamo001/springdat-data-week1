@@ -20,7 +20,5 @@ public class DepartmentDTO {
     private String code;
     private String name;
     private String building;
-    @JsonIgnore
-    private DoctorDTO director;
-    private List<WardDTO> wards;
+    private Long directorId;
 }

@@ -23,6 +23,6 @@ public class PatientDTO {
     private String telephone;
     private String diagnosis;
     private Integer bedNumber;
-    private WardDTO ward;
-    private DoctorDTO treatingDoctor;
+    private Long wardId;
+    private Long doctorId;
 }

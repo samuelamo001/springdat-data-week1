@@ -10,6 +10,11 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-public class DoctorDTO extends EmployeeDTO {
+public class DoctorDTO{
+    private Long id;
+    private String surname;
+    private String firstName;
+    private String address;
+    private String telephoneNumber;
     private String speciality;
 }
