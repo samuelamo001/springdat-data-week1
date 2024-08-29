@@ -6,7 +6,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +20,8 @@ import java.util.Set;
 public class WardDTO {
 
     private Long id;
-    @NotBlank
     private String number;
-    @NotBlank
     private Integer numberOfBeds;
-    @NotBlank
-    private NurseDTO supervisor;
-    @NotBlank
-    private DepartmentDTO department;
+    private Long supervisorId;
+    private Long departmentId;
 }

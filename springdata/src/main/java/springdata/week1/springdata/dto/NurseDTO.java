@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +16,13 @@ import springdata.week1.springdata.entities.Ward;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class NurseDTO extends EmployeeDTO {
-    @NotBlank
+public class NurseDTO {
+    private Long id;
+    private String surname;
+    private String firstName;
+    private String address;
+    private String telephoneNumber;
     private String rotation;
-    @NotBlank
     private Double salary;
-    @NotBlank
     private Long departmentId;
 }

@@ -1,5 +1,9 @@
 package springdata.week1.springdata.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +15,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "wards")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Ward {
 
     @Id
@@ -23,11 +28,12 @@ public class Ward {
     @JoinColumn(name = "supervisor_id")
     private Nurse supervisor;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "department_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Department department;
 
-    @OneToMany(mappedBy = "ward")
+    @JsonIgnore
+    @OneToMany(mappedBy = "ward", fetch = FetchType.LAZY)
     private Set<Patient> patients;
 }
