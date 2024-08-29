@@ -22,5 +22,4 @@ public class DepartmentDTO {
     private String building;
     @JsonIgnore
     private DoctorDTO director;
-    private List<WardDTO> wards;
 }

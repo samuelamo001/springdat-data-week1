@@ -16,9 +16,8 @@ import springdata.week1.springdata.entities.Ward;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class NurseDTO {
+public class NurseDTO extends EmployeeDTO {
     private String rotation;
     private Double salary;
-    private DepartmentDTO department;
-    private WardDTO supervisedWard;
+    private Long departmentId;
 }

@@ -1,5 +1,6 @@
 package springdata.week1.springdata.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,9 +23,10 @@ public class Nurse extends Employee{
 
     @ManyToOne
     @JoinColumn(name = "department_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private Department department;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "supervisor")
     private Ward supervisedWard;
 

@@ -1,7 +1,9 @@
 package springdata.week1.springdata.service;
 
+import jakarta.persistence.Table;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import springdata.week1.springdata.dto.DoctorDTO;
 import springdata.week1.springdata.entities.Doctor;
 
@@ -12,6 +14,7 @@ import java.util.List;
 
 @Service
 @Slf4j
+@Transactional
 public class DoctorService {
 
     private final DoctorRepository doctorRepository;
