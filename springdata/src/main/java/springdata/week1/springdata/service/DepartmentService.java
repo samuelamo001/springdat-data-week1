@@ -23,7 +23,7 @@ public class DepartmentService {
         this.doctorRepository = doctorRepository;
     }
     public Department createDepartment(DepartmentDTO departmentDTO) {
-        Doctor doctor = doctorRepository.findById(departmentDTO.getDirectorId()).orElseThrow(()-> new EntityNotFoundException("Not found"));
+        Doctor doctor = doctorRepository.findById(departmentDTO.getDirector()).orElseThrow(()-> new EntityNotFoundException("Not found"));
         Department department = Department.builder()
                 .name(departmentDTO.getName())
                 .code(departmentDTO.getCode())
@@ -55,10 +55,5 @@ public class DepartmentService {
         return departmentRepository.save(department);
     }
 
-    public Department findDepartmentByDirector(Long directorId) {
-        return departmentRepository.findDepartmentByDirector(directorId);
-    }
-    public List<Department> getDepartmentByBuilding(String building) {
-        return departmentRepository.findByBuilding(building);
-    }
+
 }
