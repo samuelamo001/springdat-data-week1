@@ -2,7 +2,8 @@ package springdata.week1.springdata.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,7 @@ public class PatientService {
     private final WardRepository wardRepository;
     private final DoctorRepository doctorRepository;
     private final PlatformTransactionManager transactionManager;
+    private final CacheManager cacheManager;
 
     public Patient createPatient(PatientDTO patientDTO) {
 
@@ -83,5 +85,6 @@ public class PatientService {
 
         return patientRepository.save(patient);
     }
+
 
 }

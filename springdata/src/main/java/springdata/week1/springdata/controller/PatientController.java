@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springdata.week1.springdata.dto.PatientDTO;
 import springdata.week1.springdata.entities.Patient;
-import springdata.week1.springdata.repository.PatientRepository;
 import springdata.week1.springdata.service.PatientService;
 
 import java.util.List;
