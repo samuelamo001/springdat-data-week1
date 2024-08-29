@@ -38,22 +38,7 @@ public class DepartmentService {
         return departmentRepository.findAll();
     }
 
-    public Department getDepartmentById(Long id) {
-        return departmentRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Not found"));
-    }
 
-    public void deleteDepartmentById(Long id) {
-        departmentRepository.deleteById(id);
-    }
-
-    public Department updateDepartment(Long id, DepartmentDTO departmentDTO) {
-        Department department = departmentRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Not found"));
-        department.setName(departmentDTO.getName());
-        department.setCode(departmentDTO.getCode());
-        department.setBuilding(departmentDTO.getBuilding());
-
-        return departmentRepository.save(department);
-    }
 
 
 }
