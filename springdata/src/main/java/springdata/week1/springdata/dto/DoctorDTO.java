@@ -2,6 +2,7 @@ package springdata.week1.springdata.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.Set;
@@ -11,5 +12,6 @@ import java.util.Set;
 @Getter
 @Setter
 public class DoctorDTO extends EmployeeDTO {
+    @NotBlank
     private String speciality;
 }
