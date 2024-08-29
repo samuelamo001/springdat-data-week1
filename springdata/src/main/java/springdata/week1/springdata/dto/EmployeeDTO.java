@@ -4,14 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@SuperBuilder
 public class EmployeeDTO {
 
-    private Long id;
+    private String id;
     private String surname;
     private String firstName;
     private String address;

@@ -15,7 +15,7 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WardDTO {
 
-    private Long id;
+    private String id;
     private String number;
     private Integer numberOfBeds;
     private NurseDTO supervisor;

@@ -14,7 +14,7 @@ import springdata.week1.springdata.entities.Ward;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PatientDTO {
-    private Long id;
+    private String id;
     private String name;
     private String surname;
     private String address;

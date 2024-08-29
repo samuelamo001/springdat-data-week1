@@ -20,7 +20,12 @@ public class DepartmentController {
     }
 
     @GetMapping
-    public List<Department> getAllDepartments() {
+    public List<DepartmentDTO> getAllDepartments() {
         return departmentService.getAllDepartments();
+    }
+
+    @GetMapping("/{departmentId}")
+    public DepartmentDTO getDepartment(@PathVariable String departmentId) {
+        return departmentService.getDepartment(departmentId);
     }
 }
