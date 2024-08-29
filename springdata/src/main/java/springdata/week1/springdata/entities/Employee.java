@@ -5,15 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Getter
 @Setter
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@Document(collection = "employees")
 public abstract class Employee {
 
-    private Long id;
+    @MongoId
+    private String id;
 
     private String surname;
     private String firstName;
