@@ -17,6 +17,10 @@ public class WardService {
     private static final String KEY = "Ward";
 
     public void saveWard(WardDTO wardDTO) {
+
+        if (wardDTO == null || wardDTO.getId() == null) {
+            throw new IllegalArgumentException("Ward data and ID must not be null");
+        }
         redisTemplate.opsForHash().put(KEY, wardDTO.getId(), wardDTO);
     }
 
@@ -35,12 +39,7 @@ public class WardService {
     public void deleteWard(String wardId){
         redisTemplate.opsForHash().delete(KEY, wardId);
     }
-    public List<WardDTO> findWardsByBeds(int numberOfBeds) {
-        return redisTemplate.opsForHash().values(KEY).stream()
-                .map(obj -> (WardDTO) obj)
-                .filter(ward -> ward.getBeds() != null && ward.getBeds() == numberOfBeds)
-                .collect(Collectors.toList());
-    }
+
 
     public List<WardDTO> findWardsByNameContains(String keyword) {
         return redisTemplate.opsForHash().values(KEY).stream()

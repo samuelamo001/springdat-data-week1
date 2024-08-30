@@ -37,10 +37,7 @@ public class WardController {
     public void deleteWard(@PathVariable String wardId){
         redisService.deleteWard(wardId);
     }
-    @GetMapping("/find-by-beds")
-    public List<WardDTO> findWardsByBeds(@RequestParam int beds) {
-        return redisService.findWardsByBeds(beds);
-    }
+
 
     @GetMapping("/find-by-name")
     public List<WardDTO> findWardsByNameContains(@RequestParam String keyword) {
