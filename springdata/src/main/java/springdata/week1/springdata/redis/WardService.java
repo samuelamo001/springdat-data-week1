@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class RedisService {
+public class WardService {
 
     private final RedisTemplate<String, Object> redisTemplate;
 

@@ -38,4 +38,9 @@ public class DepartmentController {
     public void deleteDepartment(@PathVariable String departmentId) {
         departmentService.deleteDepartment(departmentId);
     }
+
+    @GetMapping("/director/{directorId}")
+    public List<DepartmentDTO> getDepartmentsByDirector(@PathVariable String directorId) {
+        return departmentService.getDepartmentsByDirector(directorId);
+    }
 }

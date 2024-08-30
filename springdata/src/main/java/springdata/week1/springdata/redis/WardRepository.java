@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import springdata.week1.springdata.dto.WardDTO;
 
 @Repository
-public interface RedisRepository extends CrudRepository<WardDTO, String> {
+public interface WardRepository extends CrudRepository<WardDTO, String> {
 
 }

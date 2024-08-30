@@ -58,4 +58,12 @@ public class DepartmentService {
     public void deleteDepartment(String departmentId) {
         departmentRepository.deleteById(departmentId);
     }
+
+    public List<DepartmentDTO> getDepartmentsByDirector(String directorId) {
+        List<Department> departments = departmentRepository.findDepartmentsByDirector(directorId);
+        return departments
+                .stream()
+                .map(departmentMapper::convertToDTO)
+                .collect(Collectors.toList());
+    }
 }

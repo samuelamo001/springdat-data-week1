@@ -1,7 +1,8 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://user:User12345@cluster0.xlnnhum.mongodb.net/hospital_db?retryWrites=true&w=majority&appName=Cluster0
+      uri: ${MONGO_URI}
+
 
 
 

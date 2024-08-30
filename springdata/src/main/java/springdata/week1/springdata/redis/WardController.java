@@ -9,9 +9,9 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/redis")
-public class RedisController {
+public class WardController {
 
-    private final RedisService redisService;
+    private final WardService redisService;
 
     @PostMapping
     public void createWard(@RequestBody WardDTO wardDTO){
