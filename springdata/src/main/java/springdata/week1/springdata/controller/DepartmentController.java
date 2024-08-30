@@ -28,4 +28,14 @@ public class DepartmentController {
     public DepartmentDTO getDepartment(@PathVariable String departmentId) {
         return departmentService.getDepartment(departmentId);
     }
+
+    @PutMapping("/{departmentId}")
+    public Department updateDepartment(@PathVariable String departmentId, @RequestBody DepartmentDTO departmentDTO) {
+        return departmentService.updateDepartment(departmentId, departmentDTO);
+    }
+
+    @DeleteMapping("/{departmentId}")
+    public void deleteDepartment(@PathVariable String departmentId) {
+        departmentService.deleteDepartment(departmentId);
+    }
 }

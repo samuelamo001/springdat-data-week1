@@ -1,7 +1,6 @@
 package springdata.week1.springdata.service;
 
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import springdata.week1.springdata.dto.DepartmentDTO;
 import springdata.week1.springdata.entities.Department;
@@ -46,5 +45,17 @@ public class DepartmentService {
                 .map(departmentMapper::convertToDTO)
                 .collect(Collectors.toList());
 
+    }
+
+    public Department updateDepartment(String departmentId, DepartmentDTO departmentDTO) {
+        Department department = departmentRepository.findById(departmentId).orElseThrow(()-> new RuntimeException("Department not found"));
+        department.setCode(departmentDTO.getCode());
+        department.setName(departmentDTO.getName());
+        department.setBuilding(departmentDTO.getBuilding());
+        return departmentRepository.save(department);
+    }
+
+    public void deleteDepartment(String departmentId) {
+        departmentRepository.deleteById(departmentId);
     }
 }

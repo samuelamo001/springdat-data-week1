@@ -9,6 +9,7 @@ public class DepartmentMapper {
 
     public DepartmentDTO convertToDTO(Department department) {
         return DepartmentDTO.builder()
+                .id(department.getId())
                 .code(department.getCode())
                 .name(department.getName())
                 .building(department.getBuilding())

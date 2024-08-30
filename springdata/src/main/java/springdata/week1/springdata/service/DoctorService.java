@@ -55,5 +55,9 @@ public class DoctorService {
 
     }
 
+    public void deleteDoctor(String doctorId) {
+        doctorRepository.deleteById(doctorId);
+    }
+
 
 }

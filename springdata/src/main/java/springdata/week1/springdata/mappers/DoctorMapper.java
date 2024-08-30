@@ -9,6 +9,7 @@ public class DoctorMapper {
 
     public DoctorDTO convertToDTO(Doctor doctor) {
         return DoctorDTO.builder()
+                .id(doctor.getId())
                 .surname(doctor.getSurname())
                 .firstName(doctor.getFirstName())
                 .address(doctor.getAddress())

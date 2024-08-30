@@ -31,4 +31,9 @@ public class DoctorController {
         return doctorService.updateDoctor(doctorId, doctorDTO);
     }
 
+    @DeleteMapping("/{doctorId}")
+    public void deleteDoctor(@PathVariable String doctorId){
+        doctorService.deleteDoctor(doctorId);
+    }
+
 }
