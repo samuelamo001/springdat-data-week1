@@ -18,7 +18,7 @@ public class WardController {
         redisService.saveWard(wardDTO);
     }
 
-    @GetMapping("{wardId}")
+    @GetMapping("/{wardId}")
     public WardDTO getWard(@PathVariable String wardId){
         return redisService.getWardById(wardId);
     }
@@ -28,7 +28,7 @@ public class WardController {
         return redisService.getAllWards();
     }
 
-    @PutMapping("{wardId}")
+    @PutMapping("/{wardId}")
     public void updateWard(@PathVariable String wardId, @RequestBody WardDTO wardDTO){
         redisService.updateWard(wardId,wardDTO);
     }
