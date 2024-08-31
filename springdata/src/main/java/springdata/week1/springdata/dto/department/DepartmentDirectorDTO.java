@@ -1,4 +1,4 @@
-package springdata.week1.springdata.dto;
+package springdata.week1.springdata.dto.department;
 
 public interface DepartmentDirectorDTO {
     String getDepartmentName();

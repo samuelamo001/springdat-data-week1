@@ -1,13 +1,9 @@
 package springdata.week1.springdata.service;
 
-import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import springdata.week1.springdata.dto.DoctorDTO;
-import springdata.week1.springdata.entities.Doctor;
+import springdata.week1.springdata.dto.doctor.DoctorPatientCountDTO;
 
 
 import springdata.week1.springdata.repository.DoctorRepository;
@@ -21,6 +17,9 @@ public class DoctorService {
 
     private final DoctorRepository doctorRepository;
 
+    public List<DoctorPatientCountDTO> findDoctorsAndPatients() {
 
+        return doctorRepository.findDoctorsAndPatients();
+    }
 
 }

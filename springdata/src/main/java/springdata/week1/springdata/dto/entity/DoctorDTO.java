@@ -1,10 +1,6 @@
-package springdata.week1.springdata.dto;
+package springdata.week1.springdata.dto.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
