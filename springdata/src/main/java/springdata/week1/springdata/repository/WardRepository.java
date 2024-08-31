@@ -1,6 +1,7 @@
 package springdata.week1.springdata.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import springdata.week1.springdata.dto.ward.WardDepartmentDTO;
 import springdata.week1.springdata.dto.ward.WardDirectorDTO;
