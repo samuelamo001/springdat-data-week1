@@ -30,7 +30,7 @@ public class Nurse extends Employee{
     private Department department;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "supervisor", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "supervisor")
     private Ward supervisedWard;
 
 }
