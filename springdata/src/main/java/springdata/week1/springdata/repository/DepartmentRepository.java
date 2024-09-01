@@ -1,6 +1,8 @@
 package springdata.week1.springdata.repository;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import springdata.week1.springdata.dto.department.DepartmentAverageNurseSalaryDTO;
@@ -12,7 +14,7 @@ import springdata.week1.springdata.entities.Department;
 import java.util.List;
 
 @Repository
-public interface DepartmentRepository extends JpaRepository<Department, Long> {
+public interface DepartmentRepository extends JpaRepository<Department, Long>, JpaSpecificationExecutor<Department> {
 
     @Query(value = "SELECT d.name as departmentName, d.code as departmentCode, e.first_name as directorFirstname, e.surname as directorSurname, doc.speciality as directorSpeciality " +
             "FROM department d " +

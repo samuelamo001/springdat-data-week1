@@ -1,6 +1,8 @@
 package springdata.week1.springdata.repository;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import springdata.week1.springdata.dto.doctor.DoctorPatientCountDTO;
@@ -9,7 +11,7 @@ import springdata.week1.springdata.entities.Doctor;
 import java.util.List;
 
 @Repository
-public interface DoctorRepository extends JpaRepository<Doctor, Long> {
+public interface DoctorRepository extends JpaRepository<Doctor, Long>, JpaSpecificationExecutor<Doctor> {
 
 
 

@@ -20,22 +20,22 @@ public class PatientController {
     private final PatientService patientService;
 
     @GetMapping("/doctor")
-    public List<PatientDoctorDTO> findPatientsAndDoctors() {
+    public List<PatientDoctorDTO> getPatientsAndDoctors() {
         return patientService.findPatientsAndDoctors();
     }
 
     @GetMapping("/ward")
-    public List<PatientWardDTO> findPatientsAndWards() {
+    public List<PatientWardDTO> getPatientsAndWards() {
         return patientService.findPatientsAndWards();
     }
 
     @GetMapping("/address-doctor-speciality")
-    public List<PatientAddressDoctorSpecialityDTO> findPatientsAndAddressAndSpeciality() {
+    public List<PatientAddressDoctorSpecialityDTO> getPatientsAndAddressAndSpeciality() {
         return patientService.findPatientsAndAddressAndDoctorSpeciality();
     }
 
     @GetMapping("/nurse")
-    public List<PatientNurseDTO> findPatientsAndNurses() {
+    public List<PatientNurseDTO> getPatientsAndNurses() {
         return patientService.findPatientsAndNurses();
     }
 }

@@ -1,11 +1,14 @@
 package springdata.week1.springdata.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import springdata.week1.springdata.dto.ward.WardDepartmentDTO;
 import springdata.week1.springdata.dto.ward.WardDirectorDTO;
 import springdata.week1.springdata.dto.ward.WardPatientCountDTO;
+import springdata.week1.springdata.entities.Ward;
 import springdata.week1.springdata.repository.WardRepository;
+import springdata.week1.springdata.specifications.WardSpecification;
 
 import java.util.List;
 
@@ -15,16 +18,24 @@ public class WardService {
 
     private final WardRepository wardRepository;
 
+    public List<Ward> findWardsByCriteria(String number, int minBeds, Long departmentId) {
+        Specification<Ward> spec = Specification.where(WardSpecification.hasNumber(number))
+                .and(WardSpecification.hasBedsGreaterThan(minBeds))
+                .and(WardSpecification.belongsToDepartment(departmentId));
 
-    public List<WardPatientCountDTO> findWardsAndPatientCount() {
-        return wardRepository.findWardsAndPatientCount();
+        return wardRepository.findAll(spec);
     }
 
-    public List<WardDepartmentDTO> findWardsAndDepartments() {
-        return wardRepository.findWardsAndDepartments();
+
+    public List<WardPatientCountDTO> findWardsAndPatientCount(String wardNumber) {
+        return wardRepository.findWardsAndPatientCount(wardNumber);
     }
 
-    public List<WardDirectorDTO> findWardsAndDirectors() {
-        return wardRepository.findWardsAndDirectors();
+    public List<WardDepartmentDTO> findWardsAndDepartments(String wardNumber) {
+        return wardRepository.findWardsAndDepartments(wardNumber);
+    }
+
+    public List<WardDirectorDTO> findWardsAndDirectors(String wardNumber) {
+        return wardRepository.findWardsAndDirectors(wardNumber);
     }
 }

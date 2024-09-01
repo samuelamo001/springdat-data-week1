@@ -31,4 +31,5 @@ public class Doctor extends Employee{
     @JsonIgnore
     @OneToOne(mappedBy = "director")
     private Department directedDepartment;
+
 }

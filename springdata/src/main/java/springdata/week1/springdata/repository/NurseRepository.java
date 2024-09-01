@@ -1,6 +1,8 @@
 package springdata.week1.springdata.repository;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import springdata.week1.springdata.dto.nurse.NurseDepartmentDTO;
 import springdata.week1.springdata.dto.nurse.NurseDirectorDTO;
@@ -9,7 +11,7 @@ import springdata.week1.springdata.entities.Nurse;
 
 import java.util.List;
 
-public interface NurseRepository extends JpaRepository<Nurse, Long> {
+public interface NurseRepository extends JpaRepository<Nurse, Long>, JpaSpecificationExecutor<Nurse> {
 
 
     @Query(value = "SELECT n.id AS nurseId, " +
@@ -43,5 +45,7 @@ public interface NurseRepository extends JpaRepository<Nurse, Long> {
             "JOIN employee e ON d.director_id = e.id",
             nativeQuery = true)
     List<NurseDirectorDTO> findNursesAndDirectors();
+
+
 
 }

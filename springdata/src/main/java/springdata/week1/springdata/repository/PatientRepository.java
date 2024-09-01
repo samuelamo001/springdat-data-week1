@@ -1,16 +1,19 @@
 package springdata.week1.springdata.repository;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import springdata.week1.springdata.dto.patient.PatientAddressDoctorSpecialityDTO;
 import springdata.week1.springdata.dto.patient.PatientDoctorDTO;
 import springdata.week1.springdata.dto.patient.PatientNurseDTO;
 import springdata.week1.springdata.dto.patient.PatientWardDTO;
+import springdata.week1.springdata.entities.Nurse;
 import springdata.week1.springdata.entities.Patient;
 
 import java.util.List;
 
-public interface PatientRepository extends JpaRepository<Patient, Long> {
+public interface PatientRepository extends JpaRepository<Patient, Long>, JpaSpecificationExecutor<Patient> {
 
 
     @Query(value = "SELECT p.name AS patientName, " +
@@ -51,4 +54,6 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
             "ORDER BY p.name",
             nativeQuery = true)
     List<PatientNurseDTO> findPatientsAndNurses();
+
+
 }

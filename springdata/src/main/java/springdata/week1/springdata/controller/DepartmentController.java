@@ -6,6 +6,7 @@ import springdata.week1.springdata.dto.department.DepartmentAverageNurseSalaryDT
 import springdata.week1.springdata.dto.department.DepartmentDirectorDTO;
 import springdata.week1.springdata.dto.department.DepartmentNurseCountDTO;
 import springdata.week1.springdata.dto.department.DepartmentWardCountDTO;
+import springdata.week1.springdata.entities.Department;
 import springdata.week1.springdata.service.DepartmentService;
 
 import java.util.List;
@@ -38,6 +39,14 @@ public class DepartmentController {
     @GetMapping("/average-nurse-salary")
     public List<DepartmentAverageNurseSalaryDTO> getDepartmentAverageNurseSalary() {
         return departmentService.findDepartmentsAndAverageNurseSalary();
+    }
+
+    @GetMapping("/search")
+    public List<Department> findDepartmentsByCriteria(
+            @RequestParam(required = false) String building,
+            @RequestParam(required = false) Long directorId,
+            @RequestParam(defaultValue = "0") int minWards) {
+        return departmentService.findDepartmentsByCriteria(building, directorId, minWards);
     }
 
 

@@ -24,6 +24,7 @@ public class Ward {
     private String number;
     private Integer numberOfBeds;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "supervisor_id")
     private Nurse supervisor;
