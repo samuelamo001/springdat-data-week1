@@ -2,6 +2,7 @@ package springdata.week1.springdata.dto.entity;
 
 import lombok.*;
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
