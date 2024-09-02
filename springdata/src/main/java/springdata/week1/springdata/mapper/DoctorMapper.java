@@ -17,4 +17,5 @@ public class DoctorMapper implements GenericMapper<Doctor, DoctorDTO> {
                 .speciality(doctor.getSpeciality())
                 .build();
     }
+
 }
