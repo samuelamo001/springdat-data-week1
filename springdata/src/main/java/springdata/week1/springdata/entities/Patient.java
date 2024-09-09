@@ -11,8 +11,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "patients")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Table(name = "patients", indexes = {
+        @Index(name = "idx_patient_doctor_id", columnList = "doctor_id"),
+        @Index(name = "idx_patient_ward_id", columnList = "ward_id")
+})
 public class Patient {
 
     @Id

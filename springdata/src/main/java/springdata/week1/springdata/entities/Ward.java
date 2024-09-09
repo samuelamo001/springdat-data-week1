@@ -14,8 +14,11 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "wards")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Table(name = "wards", indexes = {
+        @Index(name = "idx_ward_number", columnList = "number"),
+        @Index(name = "idx_ward_department_id", columnList = "department_id")
+})
 public class Ward {
 
     @Id
@@ -38,3 +41,6 @@ public class Ward {
     @OneToMany(mappedBy = "ward", fetch = FetchType.LAZY)
     private Set<Patient> patients;
 }
+
+
+

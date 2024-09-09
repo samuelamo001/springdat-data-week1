@@ -1,13 +1,10 @@
 package springdata.week1.springdata.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import springdata.week1.springdata.dto.patient.PatientAddressDoctorSpecialityDTO;
 import springdata.week1.springdata.dto.patient.PatientDoctorDTO;
 import springdata.week1.springdata.dto.patient.PatientNurseDTO;
 import springdata.week1.springdata.dto.patient.PatientWardDTO;
-import springdata.week1.springdata.entities.Patient;
 import springdata.week1.springdata.repository.PatientRepository;
 
 

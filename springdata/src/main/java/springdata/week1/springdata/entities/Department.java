@@ -14,6 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Table(name = "department", indexes = {
+        @Index(name = "idx_department_code", columnList = "code"),
+        @Index(name = "idx_department_name", columnList = "name"),
+        @Index(name = "idx_department_director_id", columnList = "director_id")
+})
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +27,8 @@ public class Department {
     private String name;
     private String building;
 
-    @OneToOne
+
+    @OneToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     @JoinColumn(name = "director_id")
     private Doctor director;

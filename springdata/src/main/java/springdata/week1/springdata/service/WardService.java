@@ -21,7 +21,6 @@ public class WardService {
         this.wardRepository = wardRepository;
     }
 
-
     public List<WardPatientCountDTO> findWardsAndPatientCount(String wardNumber) {
         return wardRepository.findWardsAndPatientCount(wardNumber);
     }

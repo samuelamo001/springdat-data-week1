@@ -18,8 +18,10 @@ import org.hibernate.annotations.OnDeleteAction;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "nurses")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Table(name = "nurses", indexes = {
+        @Index(name = "idx_nurse_department_id", columnList = "department_id")
+})
 public class Nurse extends Employee{
     private String rotation;
     private Double salary;

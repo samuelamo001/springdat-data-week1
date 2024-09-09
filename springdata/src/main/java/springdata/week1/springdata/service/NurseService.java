@@ -1,18 +1,11 @@
 package springdata.week1.springdata.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import springdata.week1.springdata.dto.nurse.NurseDepartmentDTO;
 import springdata.week1.springdata.dto.nurse.NurseDirectorDTO;
 import springdata.week1.springdata.dto.nurse.NurseWardDTO;
-import springdata.week1.springdata.entities.Nurse;
 import springdata.week1.springdata.repository.NurseRepository;
-
-
 import java.util.List;
-
-
 
 @Service
 public class NurseService {

@@ -14,6 +14,9 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "employee", indexes = {
+        @Index(name = "idx_employee_surname", columnList = "surname")
+})
 public abstract class Employee {
 
     @Id

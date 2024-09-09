@@ -19,8 +19,11 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "doctors")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Table(name = "doctors", indexes = {
+        @Index(name = "idx_doctor_speciality", columnList = "speciality"),
+        @Index(name = "idx_doctor_employee_id", columnList = "id")
+})
 public class Doctor extends Employee{
     private String speciality;
 
