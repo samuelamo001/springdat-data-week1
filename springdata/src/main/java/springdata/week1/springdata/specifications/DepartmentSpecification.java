@@ -17,4 +17,5 @@ public class DepartmentSpecification {
         return (root, query, criteriaBuilder) -> criteriaBuilder.greaterThan(
                 criteriaBuilder.size(root.get("wards")), count);
     }
+
 }

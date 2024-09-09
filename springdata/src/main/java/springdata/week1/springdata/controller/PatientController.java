@@ -12,12 +12,15 @@ import springdata.week1.springdata.service.PatientService;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/patient")
 public class PatientController {
 
     private final PatientService patientService;
+
+    public PatientController(PatientService patientService) {
+        this.patientService = patientService;
+    }
 
     @GetMapping("/doctor")
     public List<PatientDoctorDTO> getPatientsAndDoctors() {

@@ -13,13 +13,17 @@ import springdata.week1.springdata.service.DoctorService;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+
 @RestController
 @RequestMapping("/api/v1/doctor")
 public class DoctorController {
 
 
     private final DoctorService doctorService;
+
+    public DoctorController(DoctorService doctorService) {
+        this.doctorService = doctorService;
+    }
 
     @GetMapping("/paged-doctors")
     public Page<DoctorDTO> getAllDoctorsPaged(Pageable pageable) {

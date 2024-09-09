@@ -11,12 +11,16 @@ import springdata.week1.springdata.service.DepartmentService;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+
 @RestController
 @RequestMapping("/api/v1/department")
 public class DepartmentController {
 
     private final DepartmentService departmentService;
+
+    public DepartmentController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
+    }
 
 
     @GetMapping("/directors")

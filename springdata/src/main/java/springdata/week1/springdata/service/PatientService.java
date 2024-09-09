@@ -13,11 +13,14 @@ import springdata.week1.springdata.specifications.PatientSpecification;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
 public class PatientService {
 
     private final PatientRepository patientRepository;
+
+    public PatientService(PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
+    }
 
     public List<Patient> findPatientsByCriteria(String diagnosis, Long doctorId, Long wardId) {
         Specification<Patient> spec = Specification.where(PatientSpecification.hasDiagnosis(diagnosis))

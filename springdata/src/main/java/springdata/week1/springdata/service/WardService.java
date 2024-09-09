@@ -12,11 +12,15 @@ import springdata.week1.springdata.specifications.WardSpecification;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+
 @Service
 public class WardService {
 
     private final WardRepository wardRepository;
+
+    public WardService(WardRepository wardRepository) {
+        this.wardRepository = wardRepository;
+    }
 
     public List<Ward> findWardsByCriteria(String number, int minBeds, Long departmentId) {
         Specification<Ward> spec = Specification.where(WardSpecification.hasNumber(number))

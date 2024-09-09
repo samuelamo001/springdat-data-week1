@@ -14,12 +14,17 @@ import springdata.week1.springdata.specifications.DepartmentSpecification;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+
 @Service
 public class DepartmentService {
 
     private final DepartmentRepository departmentRepository;
     private final DoctorRepository doctorRepository;
+
+    public DepartmentService(DepartmentRepository departmentRepository, DoctorRepository doctorRepository) {
+        this.departmentRepository = departmentRepository;
+        this.doctorRepository = doctorRepository;
+    }
 
     public List<Department> findDepartmentsByCriteria(String building, Long directorId, int minWards) {
         Specification<Department> spec = Specification.where(DepartmentSpecification.hasBuilding(building))

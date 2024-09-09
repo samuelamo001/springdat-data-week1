@@ -18,13 +18,17 @@ import springdata.week1.springdata.specifications.DoctorSpecification;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+
 @Service
-@Slf4j
 public class DoctorService {
 
     private final DoctorRepository doctorRepository;
     private final DoctorMapper doctorMapper;
+
+    public DoctorService(DoctorRepository doctorRepository, DoctorMapper doctorMapper) {
+        this.doctorRepository = doctorRepository;
+        this.doctorMapper = doctorMapper;
+    }
 
 
     public Page<DoctorDTO> findAllDoctorsPaged(Pageable pageable) {

@@ -5,7 +5,7 @@ import springdata.week1.springdata.dto.entity.DoctorDTO;
 import springdata.week1.springdata.entities.Doctor;
 
 @Component
-public class DoctorMapper implements GenericMapper<Doctor, DoctorDTO> {
+public class DoctorMapper {
 
     public DoctorDTO convertToDTO(Doctor doctor) {
         return DoctorDTO.builder()

@@ -13,12 +13,15 @@ import springdata.week1.springdata.service.WardService;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/ward")
 public class WardController {
 
     private final WardService wardService;
+
+    public WardController(WardService wardService) {
+        this.wardService = wardService;
+    }
 
 
     @GetMapping("/patient-count")

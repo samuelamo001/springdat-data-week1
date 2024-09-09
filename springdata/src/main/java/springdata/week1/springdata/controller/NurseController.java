@@ -14,11 +14,14 @@ import springdata.week1.springdata.service.NurseService;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/v1/nurse")
 public class NurseController {
 
     private final NurseService nurseService;
+
+    public NurseController(NurseService nurseService) {
+        this.nurseService = nurseService;
+    }
 
     @RequestMapping("/department")
     public List<NurseDepartmentDTO> getNurseDepartment() {

@@ -13,11 +13,15 @@ import springdata.week1.springdata.specifications.NurseSpecification;
 import java.util.List;
 
 
-@RequiredArgsConstructor
+
 @Service
 public class NurseService {
 
     private final NurseRepository nurseRepository;
+
+    public NurseService(NurseRepository nurseRepository) {
+        this.nurseRepository = nurseRepository;
+    }
 
     public List<Nurse> findNursesByCriteria(Long departmentId, Double minSalary, boolean isSupervisor) {
         Specification<Nurse> spec = Specification.where(NurseSpecification.worksInDepartment(departmentId))
