@@ -8,7 +8,6 @@ import springdata.week1.springdata.dto.ward.WardDirectorDTO;
 import springdata.week1.springdata.dto.ward.WardPatientCountDTO;
 import springdata.week1.springdata.entities.Ward;
 import springdata.week1.springdata.repository.WardRepository;
-import springdata.week1.springdata.specifications.WardSpecification;
 
 import java.util.List;
 
@@ -20,14 +19,6 @@ public class WardService {
 
     public WardService(WardRepository wardRepository) {
         this.wardRepository = wardRepository;
-    }
-
-    public List<Ward> findWardsByCriteria(String number, int minBeds, Long departmentId) {
-        Specification<Ward> spec = Specification.where(WardSpecification.hasNumber(number))
-                .and(WardSpecification.hasBedsGreaterThan(minBeds))
-                .and(WardSpecification.belongsToDepartment(departmentId));
-
-        return wardRepository.findAll(spec);
     }
 
 

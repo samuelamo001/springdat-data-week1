@@ -38,11 +38,4 @@ public class NurseController {
         return nurseService.findNursesAndDirectors();
     }
 
-    @GetMapping("/search")
-    public List<Nurse> findNursesByCriteria(
-            @RequestParam(required = false) Long departmentId,
-            @RequestParam(required = false) Double minSalary,
-            @RequestParam(defaultValue = "0") Boolean isSupervisor) {
-        return nurseService.findNursesByCriteria(departmentId, minSalary, isSupervisor);
-    }
 }

@@ -10,7 +10,7 @@ import springdata.week1.springdata.dto.department.DepartmentWardCountDTO;
 import springdata.week1.springdata.entities.Department;
 import springdata.week1.springdata.repository.DepartmentRepository;
 import springdata.week1.springdata.repository.DoctorRepository;
-import springdata.week1.springdata.specifications.DepartmentSpecification;
+
 
 import java.util.List;
 
@@ -19,20 +19,12 @@ import java.util.List;
 public class DepartmentService {
 
     private final DepartmentRepository departmentRepository;
-    private final DoctorRepository doctorRepository;
 
-    public DepartmentService(DepartmentRepository departmentRepository, DoctorRepository doctorRepository) {
+    public DepartmentService(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
-        this.doctorRepository = doctorRepository;
     }
 
-    public List<Department> findDepartmentsByCriteria(String building, Long directorId, int minWards) {
-        Specification<Department> spec = Specification.where(DepartmentSpecification.hasBuilding(building))
-                .and(DepartmentSpecification.hasDirector(directorId))
-                .and(DepartmentSpecification.hasWardsGreaterThan(minWards));
 
-        return departmentRepository.findAll(spec);
-    }
     public List<DepartmentDirectorDTO> findDepartmentDirectorsByDepartmentName() {
         return departmentRepository.findDepartmentDirectorsByDepartmentName();
     }

@@ -8,7 +8,7 @@ import springdata.week1.springdata.dto.nurse.NurseDirectorDTO;
 import springdata.week1.springdata.dto.nurse.NurseWardDTO;
 import springdata.week1.springdata.entities.Nurse;
 import springdata.week1.springdata.repository.NurseRepository;
-import springdata.week1.springdata.specifications.NurseSpecification;
+
 
 import java.util.List;
 
@@ -23,16 +23,6 @@ public class NurseService {
         this.nurseRepository = nurseRepository;
     }
 
-    public List<Nurse> findNursesByCriteria(Long departmentId, Double minSalary, boolean isSupervisor) {
-        Specification<Nurse> spec = Specification.where(NurseSpecification.worksInDepartment(departmentId))
-                .and(NurseSpecification.hasSalaryGreaterThan(minSalary));
-
-        if (isSupervisor) {
-            spec = spec.and(NurseSpecification.isSupervisor());
-        }
-
-        return nurseRepository.findAll(spec);
-    }
 
     public List<NurseDepartmentDTO> findNursesAndDepartments() {
         return nurseRepository.findNursesAndDepartments();

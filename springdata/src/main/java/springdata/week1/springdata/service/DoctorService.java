@@ -13,7 +13,7 @@ import springdata.week1.springdata.dto.entity.DoctorDTO;
 import springdata.week1.springdata.entities.Doctor;
 import springdata.week1.springdata.mapper.DoctorMapper;
 import springdata.week1.springdata.repository.DoctorRepository;
-import springdata.week1.springdata.specifications.DoctorSpecification;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,14 +44,6 @@ public class DoctorService {
                 .collect(Collectors.toList());
     }
 
-
-    public List<Doctor> findDoctorsByCriteria(String speciality, Integer minPatients, Long departmentId) {
-        Specification<Doctor> spec = Specification.where(DoctorSpecification.hasSpeciality(speciality))
-                .and(DoctorSpecification.hasPatientsGreaterThan(minPatients))
-                .and(DoctorSpecification.worksInDepartment(departmentId));
-
-        return doctorRepository.findAll(spec);
-    }
 
     public List<DoctorPatientCountDTO> findDoctorsAndPatients() {
 

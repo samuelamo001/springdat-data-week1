@@ -17,5 +17,4 @@ public class DoctorMapper {
                 .speciality(doctor.getSpeciality())
                 .build();
     }
-
 }
