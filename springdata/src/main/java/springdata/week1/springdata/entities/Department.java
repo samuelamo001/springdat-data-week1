@@ -19,6 +19,7 @@ import java.util.List;
         @Index(name = "idx_department_name", columnList = "name"),
         @Index(name = "idx_department_director_id", columnList = "director_id")
 })
+
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
