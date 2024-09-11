@@ -20,6 +20,10 @@ public interface DepartmentRepository extends JpaRepository<Department, Long>, J
             "FROM department d " +
             "INNER JOIN employee e ON d.director_id = e.id " +
             "INNER JOIN doctors doc ON doc.id = e.id", nativeQuery = true)
+   /* @Query("SELECT new springdata.week1.springdata.dto.department.DepartmentDirectorDTO(d.name, d.code, e.firstName, e.surname, doc.speciality) " +
+        "FROM Department d " +
+        "INNER JOIN Employee e ON d.director.id = e.id " +
+        "INNER JOIN Doctor doc ON doc.id = e.id")*/
     List<DepartmentDirectorDTO> findDepartmentDirectorsByDepartmentName();
 
     @Query(value = "SELECT d.name AS departmentName, COUNT(w.id) AS numberOfWards " +

@@ -2,6 +2,7 @@ package springdata.week1.springdata.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import springdata.week1.springdata.dto.department.DepartmentAverageNurseSalaryDTO;
 import springdata.week1.springdata.dto.department.DepartmentDirectorDTO;
@@ -23,6 +24,7 @@ public class DepartmentService {
     public DepartmentService(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
     }
+
 
 
     public List<DepartmentDirectorDTO> findDepartmentDirectorsByDepartmentName() {
