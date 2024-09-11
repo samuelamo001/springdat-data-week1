@@ -1,17 +1,13 @@
 package springdata.week1.springdata.service;
 
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import springdata.week1.springdata.dto.department.DepartmentAverageNurseSalaryDTO;
 import springdata.week1.springdata.dto.department.DepartmentDirectorDTO;
 import springdata.week1.springdata.dto.department.DepartmentNurseCountDTO;
 import springdata.week1.springdata.dto.department.DepartmentWardCountDTO;
-import springdata.week1.springdata.entities.Department;
 import springdata.week1.springdata.repository.DepartmentRepository;
-import springdata.week1.springdata.repository.DoctorRepository;
 
 
 import java.util.List;

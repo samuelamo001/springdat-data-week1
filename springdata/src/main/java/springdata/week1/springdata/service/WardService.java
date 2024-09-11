@@ -1,12 +1,9 @@
 package springdata.week1.springdata.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import springdata.week1.springdata.dto.ward.WardDepartmentDTO;
 import springdata.week1.springdata.dto.ward.WardDirectorDTO;
 import springdata.week1.springdata.dto.ward.WardPatientCountDTO;
-import springdata.week1.springdata.entities.Ward;
 import springdata.week1.springdata.repository.WardRepository;
 
 import java.util.List;
