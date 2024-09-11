@@ -25,7 +25,6 @@ public class DoctorService {
 
     private static final Logger logger = LoggerFactory.getLogger(DoctorService.class);
 
-
     private final DoctorRepository doctorRepository;
     private final DoctorMapper doctorMapper;
 
@@ -70,7 +69,6 @@ public class DoctorService {
 
         return doctorRepository.save(existingDoctor);
     }
-
 
     @CacheEvict(value = "doctors", allEntries = true)
     public void deleteDoctorById(Long id){
