@@ -25,3 +25,22 @@ spring:
 logging:
   level:
     org.hibernate.sql: DEBUG
+    org.springframework.boot.actuate.endpoint: DEBUG
+
+management:
+  endpoints:
+
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+
