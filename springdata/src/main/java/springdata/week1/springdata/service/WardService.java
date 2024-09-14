@@ -8,7 +8,6 @@ import springdata.week1.springdata.repository.WardRepository;
 
 import java.util.List;
 
-
 @Service
 public class WardService {
 

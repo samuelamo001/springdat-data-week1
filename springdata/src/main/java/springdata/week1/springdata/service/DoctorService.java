@@ -8,7 +8,6 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import springdata.week1.springdata.Execptions.doctor.DoctorCreationException;
 import springdata.week1.springdata.Execptions.doctor.DoctorNotFoundException;
 import springdata.week1.springdata.dto.doctor.DoctorPatientCountDTO;
 import springdata.week1.springdata.dto.entity.DoctorDTO;
@@ -18,7 +17,6 @@ import springdata.week1.springdata.repository.DoctorRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 @Service
 public class DoctorService {
@@ -65,7 +63,7 @@ public class DoctorService {
         existingDoctor.setTelephoneNumber(doctorDTO.getTelephoneNumber());
         existingDoctor.setSpeciality(doctorDTO.getSpeciality());
 
-        logger.info("Doctor with ID {} updated.", doctorId);
+        logger.info("Doctor with ID {} updated successfully.", doctorId);
 
         return doctorRepository.save(existingDoctor);
     }
@@ -75,6 +73,8 @@ public class DoctorService {
         Doctor doctor = doctorRepository.findById(id)
                 .orElseThrow(()-> new DoctorNotFoundException("Doctor with id " + id + " not found"));
         doctorRepository.delete(doctor);
+
+        logger.info("Doctor with ID {} deleted successfully.", id);
     }
 
     @CachePut(value = "doctors", key = "#doctorDTO.surname")
@@ -99,9 +99,7 @@ public class DoctorService {
         logger.info("Doctor asynchronously saved to DB: {}", doctor.getSurname());
     }
 
-
     public List<DoctorPatientCountDTO> findDoctorsAndPatients() {
         return doctorRepository.findDoctorsAndPatients();
     }
-
 }
