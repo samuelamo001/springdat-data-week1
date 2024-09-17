@@ -1,0 +1,7 @@
+/home/samuel/Desktop/LABPROJECTS/springdataweek1/src/main/java/springdata/week1/springdata/Application.java
+/home/samuel/Desktop/LABPROJECTS/springdataweek1/src/main/java/springdata/week1/springdata/Execptions/StudentNotFoundException.java
+/home/samuel/Desktop/LABPROJECTS/springdataweek1/src/main/java/springdata/week1/springdata/configurations/CachingConfiguration.java
+/home/samuel/Desktop/LABPROJECTS/springdataweek1/src/main/java/springdata/week1/springdata/controller/StudentController.java
+/home/samuel/Desktop/LABPROJECTS/springdataweek1/src/main/java/springdata/week1/springdata/entitie/Student.java
+/home/samuel/Desktop/LABPROJECTS/springdataweek1/src/main/java/springdata/week1/springdata/repository/StudentRepository.java
+/home/samuel/Desktop/LABPROJECTS/springdataweek1/src/main/java/springdata/week1/springdata/service/StudentService.java
