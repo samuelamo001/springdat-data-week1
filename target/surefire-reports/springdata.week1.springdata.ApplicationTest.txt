@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: springdata.week1.springdata.ApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.448 s -- in springdata.week1.springdata.ApplicationTest
